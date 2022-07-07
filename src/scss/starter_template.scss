@@ -1,0 +1,80 @@
+// include required libs for scss
+@use "sass:math";
+
+// import fonts
+@import url(//fonts.googleapis.com/css2?family=Permanent+Marker&display=swap);
+
+
+// convert px to rem
+@function toRem($value) {
+  @return math.div($value, 16) + rem;
+}
+
+* {
+  font-family: 'Permanent Marker', cursive;
+}
+
+html, body {
+  background-color: #1b1b1b;
+  color: #fff;
+  min-height: 100vh;
+
+  @media (max-width: 460px){
+    font-size: 14px;
+  }
+
+  @media (max-width: 370px){
+    font-size: 11px;
+  }
+}
+
+.container {
+  width: calc(100vw - 20px);
+  max-width: 1000px;
+  margin: 0 auto;
+  height: calc(100vh - 20px);
+}
+
+.center {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  height: toRem(200);
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+.title {
+  font-size: toRem(30);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: toRem(20);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #cecece;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
